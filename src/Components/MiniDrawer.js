@@ -25,6 +25,7 @@ import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import GradingIcon from '@mui/icons-material/Grading';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
+import CoronavirusIcon from '@mui/icons-material/Coronavirus';
 import Collapse from '@mui/material/Collapse';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import { useNavigate } from "react-router-dom";
@@ -105,18 +106,22 @@ export default function MiniDrawer(props) {
   const AdmissionHandleClick = () => setOpenAdmission(!openAdmission);
 
 
-  const teacher_Dashboards = [
+  const settings = [
     {
       text: 'Add Blood Group',
       icon: <BloodtypeIcon/>,
       onClick: () => {navigate('/BloodGroup')},
     },
     {
+      text: 'Deases',
+      icon: <CoronavirusIcon/>,
+      onClick: () => {navigate('/Deaseses')},
+    },
+ {
       text: 'Admission List',
       icon: <AddBusinessIcon/>,
       onClick: () => {navigate('/AdmissionList')},
     },
-
   ]
 
 
@@ -173,7 +178,7 @@ export default function MiniDrawer(props) {
             <Collapse in={openAdmission} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
                 {
-                  teacher_Dashboards.map((item) => {
+                  settings.map((item) => {
                     const { text, icon, onClick } = item;
                     return (
                     <ListItemButton onClick={onClick} sx={{ pl: 4 }}>
